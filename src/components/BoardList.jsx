@@ -1,8 +1,23 @@
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import axios from "axios";
 
 export default function BoardList() {
+  const simpleTest = () => {
+    axios
+      .get("http://localhost:3000/", {})
+      .then(response => {
+        console.log(response);
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.error(error);
+      })
+      .finally(() => {
+        console.log("Request completed");
+      });
+  };
   return (
     <>
       <Table striped bordered hover>
@@ -37,9 +52,11 @@ export default function BoardList() {
         </tbody>
       </Table>
       <div className="d-flex gap-3 justify-content-end">
-        <Button variant="primary">Primary</Button>
-        <Button variant="secondary">Secondary</Button>
-        <Button variant="danger">Danger</Button>
+        <Button variant="primary" onClick={simpleTest}>
+          입력
+        </Button>
+        <Button variant="secondary">수정</Button>
+        <Button variant="danger">삭제</Button>
       </div>
     </>
   );

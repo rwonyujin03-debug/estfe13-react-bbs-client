@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.css";
-import BoardList from "./components/BoardList";
+import "../App.css";
+import BoardList from "./BoardList";
 
 function App() {
   return (
